@@ -1,11 +1,9 @@
-const { onRequest } = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const router = require('./src/main');
 const app = express();
-const PORT = 5000;
+const PORT = 8080;
 
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(express.json())
@@ -23,7 +21,6 @@ mongoose.connect('mongodb+srv://USER_DANILO:maceio123@cluster0.zzmnspx.mongodb.n
 .then(async () => console.log('Successful connection!'))
 .catch(err => console.log('Connection error!', err))
 
-// app.listen(PORT || 5000, ()=>{
-// 	console.log(`Running at port: ${PORT}`)
-// })
-exports.app = onRequest(app);
+app.listen(PORT || 8080, ()=>{
+	console.log(`Running at port: ${PORT}`)
+})
