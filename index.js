@@ -21,6 +21,6 @@ mongoose.connect(process.env.DATABASE_CONNECTION, {
 .then(async () => console.log('Successful connection!'))
 .catch(err => console.log('Connection error!', err))
 
-app.listen(process.env.PORT , ()=>{
-	console.log(`Running at port: ${process.env.PORT}`)
+app.listen(process.env.PORT || 8080, ()=>{
+	console.log(`Running at port: ${process.env.PORT || 8080}`)
 })
